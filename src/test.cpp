@@ -13,6 +13,7 @@
 #include<string>
 #include<fstream>
 #include<string.h>
+#include<stdio.h>
 using namespace std;
 
 int main(int argc, char **argv)
@@ -27,9 +28,17 @@ int main(int argc, char **argv)
 	char buf[len];
 	MySocket a_socket(ip, port);
 
+	pid_t pid;
+    pid=fork();
+    if(pid==-1)
+    {
+    std::cout<<"fork failed"<<std::endl;
+    }
+    else if(pid==0)
+   {
 	ThreadPool pool(10);
 	pool.start_thread_pool();
-	while(true)
+    while(true)
 	{
 		memset(buf, 0, len);
 		int ret=a_socket.recv_message(buf, len); 
@@ -41,6 +50,11 @@ int main(int argc, char **argv)
 		sleep(1);
 	}
     pool.stop_thread_pool();
+   }
+    else
+   {
+    exit(0);
+   }
 	return 0;
 
 }

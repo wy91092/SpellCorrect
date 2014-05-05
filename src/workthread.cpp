@@ -34,6 +34,7 @@ void WorkThread::compute_task(struct Task &task)
 	string postfix=getPostfixExp(task._expression);
 	//cout<<postfix<<endl;
 	int result=postfixCalculate(postfix);
+    std::cout<<"i get here"<<std::endl;
 	sendto(_client_fd,&result,sizeof(int),0,(struct sockaddr*)&task._addr,sizeof(task._addr) );
 }
 void WorkThread::register_thread_pool(ThreadPool *p_thread_pool)
