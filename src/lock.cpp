@@ -5,8 +5,8 @@
 	> Created Time: Fri 11 Apr 2014 01:56:43 PM CST
  ************************************************************************/
 
-#include"lock.h"
-#include"cond.h"
+#include"../inc/lock.h"
+#include"../inc/cond.h"
  Lock::Lock()
 {
 	pthread_mutex_init(&_mutex,NULL);

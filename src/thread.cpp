@@ -5,7 +5,7 @@
 	> Created Time: Mon 14 Apr 2014 01:37:42 PM CST
  ************************************************************************/
 
-#include"thread.h"
+#include"../inc/thread.h"
 #include<iostream>
 using namespace std;
 Thread::Thread():_tid(0)//,_sleep(2)

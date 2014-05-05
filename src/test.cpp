@@ -5,8 +5,8 @@
   > Created Time: Wed 23 Apr 2014 12:17:05 PM CST
  ************************************************************************/
 
-#include"threadpool.h"
-#include"socket.h"
+#include"../inc/threadpool.h"
+#include"../inc/socket.h"
 #include<iostream>
 #include<stdlib.h>
 #include<unistd.h>

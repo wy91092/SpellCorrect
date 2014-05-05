@@ -5,7 +5,7 @@
 	> Created Time: Fri 11 Apr 2014 05:05:37 PM CST
  ************************************************************************/
 
-#include"cond.h"
+#include"../inc/cond.h"
 Cond::Cond(Lock *p_lock):_p_lock(p_lock)
 {
    pthread_cond_init(&_cond, NULL);

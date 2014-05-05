@@ -1,0 +1,3 @@
+./bin/server:./src/cond.cpp ./src/lock.cpp ./src/thread.cpp ./src/workthread.cpp ./src/test.cpp ./src/threadpool.cpp 
+	g++ -o ./bin/server ./src/cond.cpp ./src/lock.cpp ./src/thread.cpp ./src/workthread.cpp ./src/test.cpp ./src/threadpool.cpp -lpthread 
+

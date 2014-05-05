@@ -4,7 +4,7 @@
   > Mail:812665244@qq.com 
   > Created Time: Wed 23 Apr 2014 11:32:02 AM CST
  ************************************************************************/
-#include"threadpool.h"
+#include"../inc/threadpool.h"
 #include<iostream>
 #include<stack>
 //#include"workthread.h"
