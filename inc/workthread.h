@@ -28,14 +28,15 @@ class WorkThread: public Thread
 		void run();
 		void compute_task(struct Task &task);//实际的工作函数，由run来调用
 		void register_thread_pool(ThreadPool *p_thread_pool);//注册线程池
-		std::string getPostfixExp(std::string &infix);
+	/*	std::string getPostfixExp(std::string &infix);
 		bool isOperator(char ch);
 		int priority(char a);
 		int postfixCalculate(std::string &postfix);
-		void getTwoNums(std::stack<int> &num_stack, int &first, int &second);
+		void getTwoNums(std::stack<int> &num_stack, int &first, int &second);*/
 	private:
 		ThreadPool *_p_thread_pool;//线程池的指针，用来指定线程去哪里获取任务
         int _client_fd;
+        
 };
 
 #endif

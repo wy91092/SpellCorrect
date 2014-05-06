@@ -12,6 +12,6 @@ public:
   ManageWord();
   ~ManageWord();
   void read_word(const std::string &filename);
-  
+  std::vector<std::string> &get_vector();  
 };
 #endif

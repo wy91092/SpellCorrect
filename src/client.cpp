@@ -31,12 +31,15 @@ int main(int argc, char *argv[])
 	server_addr.sin_family=AF_INET;
 	server_addr.sin_port=htons(atoi(port.c_str()));
 	server_addr.sin_addr.s_addr=inet_addr(ip.c_str());
-    int result;
+    //int result;
+    char buf[128]="";
+    memset(buf, 0, 128);
 	while(std::cin>>word)
 	{
 	  int iret=sendto(server_fd, word.c_str(),word.size(),0,(struct sockaddr*)&server_addr, 16);
-	  recvfrom(server_fd, &result, 4, 0, NULL, NULL);
-	  std::cout<<"result: "<<result<<std::endl;
+	  recvfrom(server_fd, buf, 128, 0, NULL, NULL);
+	 // std::cout<<"result: "<<result<<std::endl;
+       std::cout<<buf<<std::endl;
 	}
 	return 0;
 }

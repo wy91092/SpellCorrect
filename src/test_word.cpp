@@ -1,4 +1,4 @@
-#include"manageword.h"
+#include"../inc/manageword.h"
 
 int main(int argc, char **argv)
 {

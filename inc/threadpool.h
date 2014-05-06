@@ -25,7 +25,7 @@ struct Task
 class ThreadPool: public noncopyable
 {
 	public:
-		ThreadPool(std::vector<WorkThread>::size_type max_thread);
+		ThreadPool(std::vector<WorkThread>::size_type max_thread, std::vector<std::string> &vec);
 		~ThreadPool();
 
 		void start_thread_pool();
@@ -39,7 +39,7 @@ class ThreadPool: public noncopyable
 		std::queue<Task> _task_queue;   //任务队列
 		std::vector<WorkThread>::size_type _max_thread;//线程的数目
 		std::vector<WorkThread> _thread_vector;  //用来存储线程
-
+        std::vector<std::string> _manage_word;
 		bool _is_started;     //标记线程池是否开启
 		mutable Lock _lock;   //用来保持对队列的互斥操作
 		mutable Cond _cond;   //实现对队列任务的同步操作

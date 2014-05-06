@@ -10,7 +10,7 @@
  *构造函数除了初始化每个成员变量之外
  还需要依次对线程数组中的每个线程注册自身
  */
-ThreadPool::ThreadPool(std::vector<WorkThread>::size_type max_thread):_task_queue(),_max_thread(max_thread),_thread_vector(_max_thread),_is_started(false),_lock(),_cond(&_lock)
+ThreadPool::ThreadPool(std::vector<WorkThread>::size_type max_thread, std::vector<std::string> &vec):_task_queue(),_max_thread(max_thread),_thread_vector(_max_thread),_manage_word(vec),_is_started(false),_lock(),_cond(&_lock)
 {
 	std::vector<WorkThread>::iterator iter=_thread_vector.begin();
 	for(;iter!=_thread_vector.end();++iter)

@@ -7,6 +7,7 @@
 
 #include"../inc/threadpool.h"
 #include"../inc/socket.h"
+#include"../inc/manageword.h"
 #include<iostream>
 #include<stdlib.h>
 #include<unistd.h>
@@ -18,6 +19,10 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+    if(argc<3)
+    {
+     return 0;
+    }
 	std::ifstream fin(argv[1]);
 	std::string ip,port;
 	fin>>ip>>port;
@@ -27,7 +32,9 @@ int main(int argc, char **argv)
 	const socklen_t len=1024;
 	char buf[len];
 	MySocket a_socket(ip, port);
-
+    std::string filename=argv[2];
+    ManageWord manage;
+    manage.read_word(filename);
 	pid_t pid;
     pid=fork();
     if(pid==-1)
@@ -36,7 +43,7 @@ int main(int argc, char **argv)
     }
     else if(pid==0)
    {
-	ThreadPool pool(10);
+	ThreadPool pool(10,manage.get_vector());
 	pool.start_thread_pool();
     while(true)
 	{

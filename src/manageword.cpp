@@ -1,4 +1,4 @@
-#include"manageword.h"
+#include"../inc/manageword.h"
 using namespace std;
 
 ManageWord::ManageWord():_word_vector(){}
@@ -30,4 +30,8 @@ void ManageWord::read_word(const std::string &filename)
    num++;
   }
   std::cout<<"num= "<<num<<std::endl;
+}
+
+std::vector<std::string> &ManageWord::get_vector(){
+   return _word_vector;
 }
