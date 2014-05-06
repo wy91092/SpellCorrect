@@ -24,10 +24,19 @@ void ManageWord::read_word(const std::string &filename)
    std::cout<<"open file failed!"<<std::endl;
   }
   std::string word;
-  while(infile>>word)
-  {
-   _word_vector.push_back(word);
-   num++;
+  std::string line;
+  while(getline(infile, line)){
+   for(int ix=0;ix!=line.size();++ix){
+    if(line[ix]>='a'&&line[ix]<='z') {}
+    else if(line[ix]>='A'&&line[ix]<='Z') {}
+    else line[ix]=' ';
+    }
+   istringstream stream(line);
+    while(stream>>word)
+    {
+    _word_vector.push_back(word);
+    num++;
+    }
   }
   std::cout<<"num= "<<num<<std::endl;
 }

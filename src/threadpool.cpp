@@ -19,6 +19,9 @@ ThreadPool::ThreadPool(std::vector<WorkThread>::size_type max_thread, std::vecto
 		iter->register_thread_pool(this);
 	}
 }
+std::vector<std::string> &ThreadPool::get_vec(){
+   return _manage_word;
+}
 
 bool ThreadPool::is_task_queue_empty() const
 {

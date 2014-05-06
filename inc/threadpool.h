@@ -35,6 +35,7 @@ class ThreadPool: public noncopyable
 
 		bool is_task_queue_empty() const;
 		std::queue<Task>::size_type get_task_queue_size() const;
+        std::vector<std::string> &get_vec();
 	private:
 		std::queue<Task> _task_queue;   //任务队列
 		std::vector<WorkThread>::size_type _max_thread;//线程的数目

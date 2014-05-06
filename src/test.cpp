@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 {
     if(argc<3)
     {
-     return 0;
+     std::cout<<"arguments too few"<<std::endl;;
     }
 	std::ifstream fin(argv[1]);
 	std::string ip,port;
@@ -35,14 +35,14 @@ int main(int argc, char **argv)
     std::string filename=argv[2];
     ManageWord manage;
     manage.read_word(filename);
-	pid_t pid;
+/*	pid_t pid;
     pid=fork();
     if(pid==-1)
     {
     std::cout<<"fork failed"<<std::endl;
     }
     else if(pid==0)
-   {
+   {*/
 	ThreadPool pool(10,manage.get_vector());
 	pool.start_thread_pool();
     while(true)
@@ -57,11 +57,11 @@ int main(int argc, char **argv)
 		sleep(1);
 	}
     pool.stop_thread_pool();
-   }
+  /* }
     else
    {
     exit(0);
-   }
+   }*/
 	return 0;
 
 }
